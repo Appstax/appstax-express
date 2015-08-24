@@ -12,12 +12,7 @@
     "mail": "support@appstax.com",
     "url": "http://github.com/appstax/appstax-express/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/appstax/appstax-express/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "scripts": {
     "test": "mocha --watch",
     "test-ci": "mocha"
