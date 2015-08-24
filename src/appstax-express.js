@@ -1,6 +1,7 @@
 
 var appstax = require("appstax");
 var extend  = require("extend");
+var cors    = require("cors");
 var createDomain = require("domain").create;
 
 var config = {};
@@ -60,6 +61,26 @@ context.sessions = function() {
             next(e);
         });
     }
+}
+
+context.cors = function(options) {
+    if(typeof options == "string") {
+        options = {origin: options};
+    }
+    if(options == undefined) {
+        options = {};
+    }
+    if(options.allowedHeaders == undefined) {
+        options.allowedHeaders = [];
+    }
+    options.allowedHeaders.push(
+        "x-appstax-appkey", 
+        "x-appstax-sessionid", 
+        "x-appstax-urltoken",
+        "content-type",
+        "if-modified-since"
+    );
+    return cors(options);
 }
 
 module.exports = context;

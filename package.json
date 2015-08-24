@@ -25,6 +25,7 @@
   "main": "./src/appstax-express.js",
   "dependencies": {
     "appstax": "^1.2.8",
+    "cors": "^2.7.1",
     "extend": "^3.0.0"
   },
   "devDependencies": {
