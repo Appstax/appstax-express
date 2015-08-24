@@ -1,0 +1,37 @@
+{
+  "name": "appstax-express",
+  "description": "Appstax middleware for express.js",
+  "version": "0.0.0",
+  "homepage": "https://appstax.com/",
+  "author": "Appstax Technologies AS",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/appstax/appstax-express.git"
+  },
+  "bugs": {
+    "mail": "support@appstax.com",
+    "url": "http://github.com/appstax/appstax-express/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/appstax/appstax-express/blob/master/LICENSE"
+    }
+  ],
+  "scripts": {
+    "test": "mocha --watch",
+    "test-ci": "mocha"
+  },
+  "main": "./src/appstax-express.js",
+  "dependencies": {
+    "appstax": "^1.2.8",
+    "extend": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "express": "^4.13.3",
+    "mocha": "^2.2.5",
+    "nock": "^2.10.0",
+    "unirest": "^0.4.2"
+  }
+}
