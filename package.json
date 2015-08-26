@@ -1,7 +1,7 @@
 {
   "name": "appstax-express",
   "description": "Appstax middleware for express.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://appstax.com/",
   "author": "Appstax Technologies AS",
   "repository": {
