@@ -19,7 +19,7 @@
   },
   "main": "./src/appstax-express.js",
   "dependencies": {
-    "appstax": "^1.2.8",
+    "appstax": "^1.3.0",
     "cors": "^2.7.1",
     "extend": "^3.0.0"
   },
