@@ -68,49 +68,6 @@ describe("sessions middleware", function() {
             done();
         }, 700);
     });
-
-    it("should setup new appstax app context for each request", function(done) {
-        var objects = [];
-        var statuses = [];
-
-        app.get("/", function(req, res) {
-            setTimeout(function() { 
-                var id = "id-" + objects.length;
-                var object = appstax.object("foo", {sysObjectId:id});
-                objects.push(object);
-                for(var i = 0; i < 3; i++) {
-                    var status = undefined;
-                    if(objects.length > i) {
-                        status = appstax.status(objects[i]);
-                    }
-                    statuses.push(status);
-                }
-                res.end() 
-            }, 150);
-        });
-
-        [0,1,2].forEach(function(i) {
-            setTimeout(function() {
-                unirest("get", "http://localhost:5678/").end();
-            }, i * 100);
-        });
-
-        setTimeout(function() {
-            expect(statuses[0]).to.equal("saved");
-            expect(statuses[1]).to.equal(undefined);
-            expect(statuses[2]).to.equal(undefined);
-
-            expect(statuses[3]).to.equal(undefined);
-            expect(statuses[4]).to.equal("saved");
-            expect(statuses[5]).to.equal(undefined);
-
-            expect(statuses[6]).to.equal(undefined);
-            expect(statuses[7]).to.equal(undefined);
-            expect(statuses[8]).to.equal("saved");
-
-            done();
-        }, 700);
-    })
     
     it("should forward the session id to appstax sdk calls", function(done) {
         var mock = nock("http://example.com/")

@@ -29,6 +29,7 @@ context.init = function(options) {
     config = extend({}, config, options);
 
     var ctx = createContext(options)
+    var globalContext = createContext(options);
     
     Object.keys(ctx).forEach(function bridgeApi(key) {
         if(!context.hasOwnProperty(key)) {
@@ -36,6 +37,8 @@ context.init = function(options) {
                 var domain = process.domain;
                 if(domain != null && typeof domain.__appstax == "object") {
                     return domain.__appstax.context[key];
+                } else {
+                    return globalContext[key];
                 }
                 return null
             }});
